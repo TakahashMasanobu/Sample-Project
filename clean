@@ -1,0 +1,49 @@
+# find /usr/local/venv36-d30/lib64/python3.6/site-packages -print |grep -e __pycache__ -e 00??_initial.py -e 00??_auto_*.py | grep -v /__pycache__/
+
+rm -rf Config/__pycache__
+rm -rf Users/__pycache__
+rm -rf app/__pycache__
+rm -rf api/__pycache__
+rm -rf regi/__pycache__
+rm -rf shop/__pycache__
+rm -rf menu/__pycache__
+rm -rf cert/__pycache__
+rm -rf templatetags/__pycache__
+rm -rf app/netreg/__pycache__
+rm -rf app/netreg/tools/__pycache__
+rm -rf shop/core/__pycache__
+
+rm -f  Users/migrations/000?_initial.py
+rm -f  Users/migrations/000?_auto_*.py
+rm -rf Users/migrations/__pycache__
+
+rm -f  cert/migrations/000?_initial.py
+rm -f  cert/migrations/000?_auto_*.py
+rm -rf cert/migrations/__pycache__
+
+rm -f  app/migrations/000?_initial.py
+rm -f  app/migrations/000?_auto_*.py
+rm -rf app/migrations/__pycache__
+
+rm -f  api/migrations/000?_initial.py
+rm -f  api/migrations/000?_auto_*.py
+rm -rf api/migrations/__pycache__
+
+rm -f  menu/migrations/000?_initial.py
+rm -f  menu/migrations/000?_auto_*.py
+rm -rf menu/migrations/__pycache__
+
+rm -f  shop/migrations/000?_initial.py
+rm -f  shop/migrations/000?_auto_*.py
+rm -rf shop/migrations/__pycache__
+
+rm -f  shop/core/migrations/000?_initial.py
+rm -f  shop/core/migrations/000?_auto_*.py
+rm -rf shop/core/migrations/__pycache__
+
+
+rm -rf static/downloads/DUMP/dump_*
+rm -rf media/101*
+rm -f  media/uploads/*
+rm -rf static/downloads/private/101*
+

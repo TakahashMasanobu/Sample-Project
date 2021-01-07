@@ -1,0 +1,52 @@
+. ./env
+#
+#  既にテーブルが存在している場合でエラー
+#       python38 manage.py migrate --fake
+#       migrate済みにする。
+#  テーブル存在しなくてエラーの場合
+#       app/migrations/0001_initial.pyを編集.
+#       存在しないテーブルのみを残しmigrateでテーブル作成
+#
+#echo python38 manage.py showmigrations------------------------------
+#python38 manage.py showmigrations
+
+#echo python38 manage.py migrate --fake app zero---------------------
+#python38 manage.py migrate --fake app zero
+
+#echo python38 manage.py showmigrations------------------------------
+#python38 manage.py showmigrations
+#echo python38 manage.py showmigrations --plan  適応計画-------------
+#python38 manage.py showmigrations --plan
+#
+# vi app/migrations/0001_initial.pyを編集（存在している項を削除）
+#
+#echo python38 manage.py migrate--------------------------------------
+#python38 manage.py migrate --fake-initial
+
+#echo python38 manage.py migrate--------------------------------------
+#python38 manage.py migrate
+#
+# collect statics to assets
+#python38 manage.py collectstatic
+
+# SQL確認
+#python38 manage.py sqlmigrate Users 0001_initial
+#
+
+echo python38 manage.py collectstatic------------------------------
+python38 manage.py collectstatic
+
+
+echo python38 manage.py makemigrations-------------------------------
+python38 manage.py makemigrations
+
+echo python38 manage.py migrate--------------------------------------
+python38 manage.py migrate
+
+echo python38 manage.py createsuperuser------------------------------
+python38 manage.py createsuperuser
+
+echo python38 manage.py runserver 0.0.0.0:8100-----------------------
+#python38 manage.py runserver 0.0.0.0:8100
+python38 manage.py runserver 
+

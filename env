@@ -1,0 +1,36 @@
+#/bin/sh 
+DIR=~/Make/ENV
+VENV=venv38-d314
+CURRENT_DIR=`pwd`
+DJANGO_DIR=`readlink django`
+
+if [ "$1" = "create" ]; then
+
+  sudo rm -rf $DIR/$VENV
+  sudo mkdir  $DIR/$VENV
+  sudo chmod -R a+w $DIR/$VENV
+  ln -s $DIR/$VENV/lib/python3.8/site-packages django
+
+  cd $DIR
+  python38 -m venv $VENV
+  sudo chmod go+w $DIR
+  cd $CURRENT_DIR
+  source $DIR/$VENV/bin/activate
+  pip3 install --upgrade pip 
+  #pip3 install -r requirements.txt --proxy=192.168.25.111:3128
+  pip3 install -r requirements.txt
+
+  # FONT set for JASPER
+  echo cp -p sets/ipa_Fonts.jar $DIR/$VENV/lib/python3.8/site-packages/pyreportjasper/jasperstarter/jdbc/ipa_Fonts.jar
+  sudo cp -p sets/ipa_Fonts.jar $DIR/$VENV/lib/python3.8/site-packages/pyreportjasper/jasperstarter/jdbc/ipa_Fonts.jar
+
+  echo "pythonの仮想環境を構築しました。"
+
+else  
+  echo "source $DIR/$VENV/bin/activate"
+  echo "sosrce $DJANGO_DIR/../../../bin/activate"
+
+  source $DJANGO_DIR/../../../bin/activate
+  echo  "pythonの仮想環境をセットしました。"
+
+fi
